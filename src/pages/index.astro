@@ -1,0 +1,60 @@
+---
+import Container from '@/components/home/Container.astro';
+import Introduction from '../components/home/Introduction.astro';
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+<!-- 
+a ver
+esto es un comment block largo 
+
+necesitamos:
+
+un navbar que lleve a cada lado de la pagina
+	- un logo mio (probablemente unas mascota?)
+		- sirve de homepage
+	- la zona de blogs
+	- la zona de arte
+	- la zona de curriculum
+	- biblioteca de juegos
+
+una homepage
+	- con una breve intro
+	- una serie de bentos con mis accomplishments
+	- tarjeta de contacto y redes sociales
+
+biblioteca de arte
+	- con todos las publicaciones interesantes
+	- data driven
+
+blog
+	- esto va a ser 1 fiesta
+	- data driven y markdown
+	- varios idiomas?
+
+biblioteca de juegos
+
+	- once again, data driven
+	- a ser posible un poco de gameplay, videos comprimidos
+
+
+el estilo: 
+	muy frutiger aero + wii vibes
+	temas naturales, verdes y azules
+	acentos en naranja
+
+-->
+
+<Layout>
+	<Container>
+		<Introduction/>
+		<div id="bento">
+			<div>el arte</div>
+			<div>la tecnologia</div>
+			<div>los blogs</div>
+		</div>
+	</Container>
+</Layout>
