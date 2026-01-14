@@ -1,0 +1,43 @@
+---
+interface Props {
+    title: string;
+    items: string[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<div class="area-card">
+    <h2>{title}</h2>
+    <ul class="items-list">
+        {items.map((item) => (
+            <li>{item}</li>
+        ))}
+    </ul>
+</div>
+
+<style>
+    .area-card {
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        background-color: #f9fafb;
+    }
+
+    h2 {
+        margin: 0 0 1rem 0;
+        font-size: 1.5rem;
+        color: #1f2937;
+    }
+
+    .items-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .items-list li {
+        padding: 0.5rem 0;
+        color: #4b5563;
+    }
+</style>
