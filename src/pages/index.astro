@@ -1,8 +1,9 @@
 ---
-import Container from '@/components/home/Container.astro';
-import Introduction from '../components/home/Introduction.astro';
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Bento from '@/components/home/Bento.astro';
+import Card from '@/components/Card/index.astro';
+
+import Introduction from '../components/home/Introduction.astro';
 import ProfileCard from '@/components/home/ProfileCard.astro';
 import AreaCard from '@/components/home/AreaCard.astro';
 
@@ -51,15 +52,37 @@ el estilo:
 -->
 
 <Layout>
-	<Container>
+	<Bento>
+		
 		<ProfileCard/>
 		<Introduction/>
-		<div id="bento" class="flex flex-row gap-8 mt-8">
-			<AreaCard title="Programación" items={
-				['Desarrollo web con Next.js, React y Astro', 'Desarrollo de videojuegos en C++ con SDL y Ogre', 'Desarrollo de sistemas gráficos con Vulkan']
-				} />
-			<AreaCard title="Desarrollo de videojuegos" items={['Desarrollos en Unity y Godot', 'Herramientas de diseño con tecnologías web', 'Diseño de videojuegos', 'Pipelines de desarrollo de assets']} />
-			<AreaCard title="Arte" items={['Ilustración', 'Modelado 3D', 'Arte ambiental']} />
-		</div>
-	</Container>
+		<AreaCard 
+		colSpan='1' rowSpan='3'
+		title="Programación" items={
+			['Desarrollo web con Next.js, React y Astro', 'Desarrollo de videojuegos en C++ con SDL y Ogre', 'Desarrollo de sistemas gráficos con Vulkan']
+		} />
+		<AreaCard colSpan='1' rowSpan='3' title="Desarrollo de videojuegos" items={['Desarrollos en Unity y Godot', 'Herramientas de diseño con tecnologías web', 'Diseño de videojuegos', 'Pipelines de desarrollo de assets']} />
+		<AreaCard colSpan='1' rowSpan='3' title="Arte" items={['Ilustración', 'Modelado 3D', 'Arte ambiental']} />
+		<Card title='Galería de proyectos'>
+
+		</Card>
+
+		<Card title="Ahora">
+
+		</Card>
+
+		<Card title="Contacto">
+
+		</Card>
+
+		<Card title="Descarga mi CV">
+
+		</Card>
+
+		<Card title="Blog">
+
+		</Card>
+		<!-- proyectos destacados -->
+		
+	</Bento>
 </Layout>

@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon/components";
+import Content from "./Content.astro";
+import DoubleBorder from "../home/DoubleBorder.astro";
+
+interface Props {
+  title?: string;
+  body?: string;
+  colSpan?: string;
+  rowSpan?: string;
+  href?: string;
+  colorText?: string;
+  height?: string;
+  width?: string;
+}
+
+const { title, body, colSpan, rowSpan, href, colorText, height } = Astro.props;
+---
+
+<div
+    style = {`
+        grid-column: span ${colSpan || 1};
+        grid-row: span ${rowSpan || 1};
+        height: ${height || "auto"};
+    `}
+>
+    <DoubleBorder>
+
+        {
+            href ? (
+                <a class={`h-full w-full ${colorText || ""}`} href={href}>
+        <Icon
+          class="h-6 float-right group-hover:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform ease-in-out duration-100 z-20"           name="ri:arrow-right-up-line"
+          />
+        <Content body={body} title={title}>
+          <slot />
+        </Content>
+      </a>
+    ) : (
+        <Content body={body} title={title}>
+        <slot />
+      </Content>
+    )
+    }
+</DoubleBorder>
+</div>
+
+<style> 
+    div {
+        width: 100%;
+        height: 100%;
+    }
+</style>

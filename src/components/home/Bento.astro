@@ -1,0 +1,23 @@
+<div id="bento">
+    <slot/>
+</div>
+
+<style>
+
+#bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+
+    row-gap: 0.75rem;
+    column-gap: 0.75rem;
+
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+</style>
