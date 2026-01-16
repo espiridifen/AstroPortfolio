@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
 import Content from "./Content.astro";
-import DoubleBorder from "../home/DoubleBorder.astro";
 
 interface Props {
   title?: string;
@@ -18,36 +17,31 @@ const { title, body, colSpan, rowSpan, href, colorText, height } = Astro.props;
 ---
 
 <div
-    style = {`
-        grid-column: span ${colSpan || 1};
-        grid-row: span ${rowSpan || 1};
-        height: ${height || "auto"};
-    `}
+  class={`card flex flex-col h-max sm:h-auto group overflow-hidden
+   transform-y-[-40%]
+     shadow-lg rounded-lg
+     p-6 border hover:border-primary-500
+      align-start flex-none
+       ${height || "h-full"} 
+    justify-start relative transform perspective-1200 w-full transition duration-75 ease-in-out col-span-1 
+    ${colSpan || "md:col-span-2"} 
+   ${rowSpan || ""}`}
 >
-    <DoubleBorder>
-
-        {
-            href ? (
-                <a class={`h-full w-full ${colorText || ""}`} href={href}>
+  {
+    href ? (
+      <a class={`h-full w-full ${colorText || ""}`} href={href}>
         <Icon
-          class="h-6 float-right group-hover:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform ease-in-out duration-100 z-20"           name="ri:arrow-right-up-line"
-          />
+          class="h-6 float-right group-hover:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform ease-in-out duration-100 z-20"
+          name="ri:arrow-right-up-line"
+        />
         <Content body={body} title={title}>
           <slot />
         </Content>
       </a>
     ) : (
-        <Content body={body} title={title}>
+      <Content body={body} title={title}>
         <slot />
       </Content>
     )
-    }
-</DoubleBorder>
+  }
 </div>
-
-<style> 
-    div {
-        width: 100%;
-        height: 100%;
-    }
-</style>

@@ -9,7 +9,11 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), icon()],
+  integrations: [react(), icon(
+    { include : {
+      ri: ['*'],
+    }}
+  )],
 
   vite: {
     plugins: [tailwindcss()]
