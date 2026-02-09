@@ -10,17 +10,27 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--color-blue-400);
+	background-image: 
+    repeating-linear-gradient(
+      0deg, 
+      transparent, 
+      transparent 1rem,
+      --color-emerald-50 1rem,
+      --color-emerald-100 2rem
+    );
+  background-size: 200% 200%;
+  animation: barberpole 10s linear infinite;
 }
 
 @keyframes expand {
 	0% {
-		transform: scale(0.8);
-		opacity: 0.3;
+		
+		transform: scale(0.8) ;
+		opacity: 0;
 	}
 
 	50% {
-		opacity: 0.2;
+		opacity: 0.3;
 	}
 
 	100% {
@@ -30,5 +40,24 @@ body {
 }
 
 .animate-expand {
-	animation: expand 2s ease-in-out infinite alternate;
+	animation: expand 6s ease-in-out infinite;
+	animation-direction: normal;
 }
+
+.stripes {
+			background-color: var(--color-gunmetal-200);
+			background-image: repeating-linear-gradient(
+				0deg, 
+	    	  	var(--color-gunmetal-50) 1rem,
+    	  		var(--color-gunmetal-100) 1.5rem,
+				var(--color-gunmetal-50) 2rem
+			);
+			background-size: 200% 200%;
+			animation: barberpole 50s linear infinite;
+		}
+
+		@keyframes barberpole {
+			100% {
+				background-position: 100% 100%;
+			}
+		}

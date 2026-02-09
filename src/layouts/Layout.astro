@@ -9,7 +9,7 @@
 	</head>
 	<body>
 			<div
-    class="loader text-3xl bg-emerald-50 font-black uppercase flex justify-center items-center w-screen h-screen fixed top-0 bottom-0 right-0 left-0"     slot="loader"
+    class="loader text-3xl stripes font-black uppercase flex justify-center items-center w-screen h-screen fixed top-0 bottom-0 right-0 left-0"     slot="loader"
   >
   </div>
   <slot />
@@ -19,4 +19,9 @@
 	
 	<style is:global>
 		@import "../styles/global.css";
+
+		.layout-bg {
+			background-color: var(--color-gunmetal-400);
+		}
+	
 </style>

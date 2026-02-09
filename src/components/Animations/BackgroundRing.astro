@@ -1,0 +1,38 @@
+<div class="ring-particle w-96 h-96 border-emerald-500 rounded-full border-20"><div>
+
+<style lang="scss">
+
+
+    @for $i from 1 through 30 {
+	@keyframes particle-animation-#{$i}{
+        0% {
+            opacity: 0;
+        }
+        
+        50% {
+            opacity: 0.4;
+        }
+
+		100% {
+            opacity: 0;
+			transform: translate3d((- 10vw + random(80) * 1vw), (- 10vh + random(80) * 1vh), (random(50) * 1px));
+		}
+	}
+    
+    .ring-particle:nth-child(#{$i}){
+        
+        $size: 60vw;
+        width: $size;
+        height: $size;
+        border-color: var(--color-emerald-400);
+        border-radius: calc(infinity * 1);
+        border-style: var(--tw-border-style);
+        border-width: 40px;
+        position: absolute;
+        
+		animation: particle-animation-#{$i} 15s infinite;
+		animation-delay: - $i * 2s;
+		transform: translate3d((- $size + random(80) * 1vw), (- 60vh + random(80) * 1vh), (random(50) * 1px));
+    }
+}
+</style>
