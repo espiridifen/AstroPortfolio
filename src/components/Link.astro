@@ -1,0 +1,27 @@
+---
+interface Props  {
+    href : string,
+}
+
+const {href} = Astro.props
+
+---
+<a class="link flex flex-row" href={href}>
+    <div class="link flex flex-row border-2 border-sky-300 hover:border-emerald-300 hover:bg-emerald-50 p-0.5 m-1 bg-sky-50">
+        <div class="mx-2">
+            <slot name="icon">
+               
+            </slot>
+        </div>
+        <slot name="text">
+            Text
+        </slot>
+    </div>
+</a>
+
+<style>
+@import "@/styles/colors.css";
+
+.link {
+}
+</style>

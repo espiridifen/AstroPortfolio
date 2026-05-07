@@ -1,0 +1,118 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Bento from "@/components/home/Bento.astro";
+import Card from "@/components/Card/index.astro";
+
+import Introduction from "@/components/home/Introduction.astro";
+import ProfileCard from "@/components/home/ProfileCard.astro";
+import AreaCard from "@/components/home/AreaCard.astro";
+import BackgroundRing from "@/components/Animations/BackgroundRing.astro";
+import Link from "@/components/Link.astro";
+import ProyectGallery from "@/components/home/ProyectGallery.astro";
+import { Github, Linkedin, MailIcon } from "lucide-react";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<!-- 
+a ver
+esto es un comment block largo 
+
+necesitamos:
+
+un navbar que lleve a cada lado de la pagina
+	- un logo mio (probablemente unas mascota?)
+		- sirve de homepage
+	- la zona de blogs
+	- la zona de arte
+	- la zona de curriculum
+	- biblioteca de juegos
+
+una homepage
+	- con una breve intro
+	- una serie de bentos con mis accomplishments
+	- tarjeta de contacto y redes sociales
+
+biblioteca de arte
+	- con todos las publicaciones interesantes
+	- data driven
+
+blog
+	- esto va a ser 1 fiesta
+	- data driven y markdown
+	- varios idiomas?
+
+biblioteca de juegos
+
+	- once again, data driven
+	- a ser posible un poco de gameplay, videos comprimidos
+
+
+el estilo: 
+	muy frutiger aero + wii vibes
+	temas naturales, verdes
+	acentos en naranja
+
+-->
+<Layout>
+  
+
+  <main
+    class="grid max-w-7xl
+		p-2 gap-2
+		sm:p-4 sm:gap-2
+		md:grid-cols-3 md:gap-3 md:p-6
+		lg:h-screen lg:grid-rows-6 lg:grid-cols-4 lg:gap-6 lg:max-h-[750px]"
+  >
+    <Introduction />
+
+    <Card title="Intereses" colSpan="md:col-span-1" rowSpan="md:row-span-3">
+      Actualmente estoy interesando en: <br />
+      <ul>
+        <li>- Desarrollo web</li>
+        <li>- Videojuegos: Game Design, Programming y Arte 3D</li>
+        <li>- Technical Art</li>
+        <li>- Ilustración</li>
+      </ul>
+    </Card>
+	
+	<Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Contacto">
+	  <Link href="mailto:daniel.alonsoherranz@gmail.com">
+		<div slot="icon">
+			<MailIcon/>
+		</div>
+		<div slot="text">Send me a mail</div>
+	  </Link>
+	  <Link href="https://github.com/espiridifen">
+		<div slot="icon">
+			<Github/>
+		</div>
+		<div slot="text">Github</div>
+	  </Link>
+	  <Link href="https://www.linkedin.com/in/daniel-alonso-herranz-13a310256/">
+		<div slot="icon">
+			<Linkedin/>
+		</div>
+		<div slot="text">LinkedIn</div>
+	  </Link>
+	</Card>
+
+	<ProyectGallery/>
+
+	
+	<Card colSpan="md:col-span-1" rowSpan="md:row-span-5" title="Blog" />
+	
+    <Card
+	colSpan="md:col-span-1"
+	rowSpan="md:row-span-3"
+	title="Descarga mi CV"
+	href="https://cv.espi.top"
+    >
+	en es
+</Card>
+
+
+<Card colSpan="md:col-span-2" rowSpan="md:row-span-2" title="Ahora" />
+</main>
+</Layout>

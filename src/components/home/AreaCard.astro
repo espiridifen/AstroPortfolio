@@ -16,7 +16,7 @@ const { title, items, colSpan, rowSpan } = Astro.props;
 
     <div class="area-card">
         <ul class="items-list">
-            {items.map((item) => (
+            {items.map((item: unknown) => (
                 <li>{item}</li>
             ))}
     </ul>

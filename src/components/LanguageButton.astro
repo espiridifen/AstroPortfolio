@@ -1,0 +1,43 @@
+---
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import Button from "./home/Button.astro";
+import { LanguagesIcon } from "lucide-react";
+
+import { languages } from "@/i18n/ui";
+
+const url = Astro.url;
+
+const [, lang, route] = url.pathname.split('/');
+---
+
+<div>
+  <NavigationMenu>
+    <NavigationMenuList>
+      <NavigationMenuItem value="test">
+
+        <NavigationMenuTrigger>
+          <Button>
+            <div slot="text">
+              <LanguagesIcon />
+            </div>
+          </Button>
+        </NavigationMenuTrigger>
+        <NavigationMenuContent>
+          {
+            Object.entries(languages).map(([lang, label]) => (
+              <NavigationMenuLink href={`/${lang}/${route}`}>{label}</NavigationMenuLink>
+            ))
+          }
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        </NavigationMenuList>
+  </NavigationMenu>
+</div>

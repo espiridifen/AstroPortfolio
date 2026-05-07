@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Card from "@/components/Card/index.astro";
+type Props = {
+    project: CollectionEntry<"projects">
+}
+
+const { project } = Astro.props
+
+const html = project.rendered?.html || ''
+const imgRegex = /<img[^>]*>/g
+const images = html.match(imgRegex) || []
+const textHtml = html.replace(imgRegex, '')
+
+console.log(images, textHtml)
+---
+<Card>
+
+    <div class="text-container" set:html={textHtml}></div>
+    <div class="images-container">
+        {images.map((img) => (
+            <div>
+    imagen 
+    <div set:html={img}></div>
+  </div>
+  ))}
+</div>
+</Card>
+
+<style>
+
+</style>

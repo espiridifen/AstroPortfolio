@@ -1,27 +1,48 @@
+---
+import "@/styles/starwind.css";
+import BackgroundRing from "@/components/Animations/BackgroundRing.astro";
+import LanguageButton from "@/components/LanguageButton.astro";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-			<div
-    class="loader text-3xl stripes font-black uppercase flex justify-center items-center w-screen h-screen fixed top-0 bottom-0 right-0 left-0"     slot="loader"
-  >
-  </div>
-  <slot />
-
-	</body>
-	</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <div
+      class="loader stripes flex justify-center items-center w-screen h-screen fixed top-0 bottom-0 right-0 left-0"
+      slot="loader"
+    >
+	<div class="fixed inset-0 pointer-events-none overflow-hidden">
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+		<BackgroundRing />
+	  </div>
+    <div class="fixed right-2 top-2">
+      <LanguageButton client:load></LanguageButton>
+    </div>
+	<slot />
 	
-	<style is:global>
-		@import "../styles/global.css";
+</div>
+  </body>
+</html>
 
-		.layout-bg {
-			background-color: var(--color-gunmetal-400);
-		}
-	
+<style is:global>
+  @import "../styles/global.css";
+
+  .layout-bg {
+    background-color: var(--color-gunmetal-400);
+  }
 </style>

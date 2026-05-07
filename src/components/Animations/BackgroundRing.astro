@@ -1,7 +1,7 @@
 <div class="ring-particle w-96 h-96 border-emerald-500 rounded-full border-20"><div>
 
 <style lang="scss">
-
+    @use "sass:math";
 
     @for $i from 1 through 30 {
 	@keyframes particle-animation-#{$i}{
@@ -15,7 +15,7 @@
 
 		100% {
             opacity: 0;
-			transform: translate3d((- 10vw + random(80) * 1vw), (- 10vh + random(80) * 1vh), (random(50) * 1px));
+			transform: translate3d((- 10vw + math.random(80) * 1vw), (- 10vh + math.random(80) * 1vh), (math.random(50) * 1px));
 		}
 	}
     
@@ -32,7 +32,7 @@
         
 		animation: particle-animation-#{$i} 15s infinite;
 		animation-delay: - $i * 2s;
-		transform: translate3d((- $size + random(80) * 1vw), (- 60vh + random(80) * 1vh), (random(50) * 1px));
+		transform: translate3d((- $size + math.random(80) * 1vw), (- 60vh + math.random(80) * 1vh), (math.random(50) * 1px));
     }
 }
 </style>

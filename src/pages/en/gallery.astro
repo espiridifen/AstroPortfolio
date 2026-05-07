@@ -1,0 +1,50 @@
+---
+import Link from "@/components/Link.astro";
+import Layout from "@/layouts/Layout.astro";
+import { ArrowBigLeftDash } from "lucide-react";
+
+import Card from "@/components/Card/index.astro";
+import { getCollection } from "astro:content";
+import ProyectCard from "@/components/home/ProyectCard.astro";
+
+import GalleryCard from "@/gallery/GalleryCard.astro";
+
+const projects = await getCollection("projects");
+
+console.log(projects);
+---
+
+<Layout>
+  <div id="gallery-container" class="flex items-center">
+    <Card colSpan="md:col-span-1">
+      <Link href="/">
+        <div slot="icon">
+          <ArrowBigLeftDash />
+        </div>
+        <div slot="text">Back</div>
+      </Link>
+    </Card>
+
+    <div class="col-start-2 row-start-2 p-8 flex flex-col">
+        <div class="grid grid-cols-6 grid-rows-6">
+            <GalleryCard colSpan="col-span-1" rowSpan="row-span-1">
+
+        </div>
+    </GalleryCard>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  #gallery-container {
+    margin-left: 10%;
+    margin-right: 10%;
+
+    min-width: 90%;
+    min-height: 90%;
+
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 10% 90%;
+  }
+</style>

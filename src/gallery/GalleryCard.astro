@@ -1,0 +1,55 @@
+---
+import { Button } from "@/components/starwind/button";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/starwind/dialog";
+
+import hbl from "@/assets/images/placeholders/placeholder1.jpg";
+
+interface Props {
+  colSpan: string;
+  rowSpan: string;
+  carouselImages: Array<ImageMetadata>;
+}
+
+const { colSpan, rowSpan, carouselImages = undefined } = Astro.props;
+---
+
+<div class={`${colSpan || "col-span-1"} ${rowSpan || "row-span-1"}`}>
+  <Dialog>
+    <DialogTrigger>
+      <div class="border-4 rounded-2xl">
+        <slot name="thumbnail">
+          <img src={hbl.src} alt="ill be ur honey b lovely" />
+        </slot>
+      </div>
+    </DialogTrigger>
+
+    <DialogContent class={"bg-amber-500 max-w-full max-h-full w-[80%] h-[60%]"}>
+      <DialogTitle>
+        <slot name="title"> Default Title </slot>
+      </DialogTitle>
+      <DialogDescription>
+        <div class="flex flex-row">
+          <slot name="description">
+            Default Description with info about the proyect, what was done and
+            things
+          </slot>
+          <div></div>
+        </div>
+      </DialogDescription>
+      <DialogFooter>
+        <div>
+          <slot name="links"> An array of links </slot>
+        </div>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+</div>

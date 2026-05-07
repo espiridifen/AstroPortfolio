@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+const documents = await getCollection('blogposts');
+
+
+console.log(documents)
+
+---
+
+<Layout>
+    WIP
+
+    {
+        documents.map((d) => {
+            <div>
+                d.data.title
+            </div>
+        }
+        )
+    }
+
+
+</Layout>
