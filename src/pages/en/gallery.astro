@@ -7,7 +7,14 @@ import Card from "@/components/Card/index.astro";
 import { getCollection } from "astro:content";
 import ProyectCard from "@/components/home/ProyectCard.astro";
 
-import GalleryCard from "@/gallery/GalleryCard.astro";
+import GalleryCard from "@/components/gallery/GalleryCard.astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/placeholders/*.{jpeg,jpg,png,gif}",
+  { eager: true }
+);
+
+const imageList = Object.values(images).map((m) => m.default);
 
 const projects = await getCollection("projects");
 
@@ -26,11 +33,17 @@ console.log(projects);
     </Card>
 
     <div class="col-start-2 row-start-2 p-8 flex flex-col">
-        <div class="grid grid-cols-6 grid-rows-6">
-            <GalleryCard colSpan="col-span-1" rowSpan="row-span-1">
-
+        <div class="grid grid-cols-6 grid-rows-6 gap-2 z-10">
+            <GalleryCard colSpan="col-span-1" rowSpan="row-span-1" carouselImages={imageList}>
+            </GalleryCard>
+            <GalleryCard colSpan="col-span-2" rowSpan="row-span-2" carouselImages={imageList}>
+            </GalleryCard>
+            <GalleryCard colSpan="col-span-3" rowSpan="row-span-3" carouselImages={imageList}>
+            </GalleryCard>
+            <GalleryCard colSpan="col-span-1" rowSpan="row-span-1" carouselImages={imageList}>
+            </GalleryCard>
+            
         </div>
-    </GalleryCard>
     </div>
   </div>
 </Layout>

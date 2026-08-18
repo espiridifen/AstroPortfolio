@@ -1,0 +1,59 @@
+---
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../starwind/carousel";
+
+interface Props {
+    carouselImages: Array<ImageMetadata>;
+        imageAspectClass? : string
+}
+
+const {
+      carouselImages = [],
+    imageAspectClass = "aspect-[4/3]",
+} = Astro.props
+
+const carouselClass = "mx-auto w-full max-w-[28rem]";
+
+const carouselNavClass =
+  "z-20 bg-black/50 text-white border-white/20 backdrop-blur-sm hover:bg-black/70";
+
+const carouselNavCenterStyle = "top: 50%; transform: translateY(-50%);";
+
+---
+
+
+  <Carousel
+    opts={{ align: "start", loop: true }}
+    orientation="horizontal"
+    class={carouselClass}
+  >
+    <CarouselContent>
+      {
+        carouselImages.map((item) => {
+          const href = item.src;
+
+          return (
+            <CarouselItem>
+              <div class={`w-full overflow-hidden ${imageAspectClass}`}>
+                <img src={href} class="h-full w-full object-cover" />
+              </div>
+            </CarouselItem>
+          );
+        })
+      }
+    </CarouselContent>
+    <CarouselPrevious
+      class={carouselNavClass}
+      style={`left: 0.75rem; ${carouselNavCenterStyle}`}
+    />
+    <CarouselNext
+      class={carouselNavClass}
+      style={`right: 0.75rem; ${carouselNavCenterStyle}`}
+    />
+  </Carousel>
+

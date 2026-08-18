@@ -1,0 +1,144 @@
+---
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogTitle,
+  DialogTrigger,
+} from "../starwind/dialog";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../starwind/carousel";
+
+import hbl from "@/assets/images/placeholders/placeholder1.jpg";
+import ImageCarrousel from "./ImageCarrousel.astro";
+
+interface Props {
+  colSpan: string;
+  rowSpan: string;
+  carouselImages: Array<ImageMetadata>;
+  imageAspectClass?: string;
+}
+
+const {
+  colSpan,
+  rowSpan,
+  carouselImages = [],
+  imageAspectClass = "aspect-[4/3]",
+} = Astro.props;
+
+const rootClass = `${colSpan || "col-span-1"} ${rowSpan || "row-span-1"}`;
+const thumbnailClass =
+  "border-4 rounded-2xl overflow-hidden channel hover:border-fuchsia-800";
+
+// Centralized style tokens to make visual tuning easier.
+const modalClass =
+  "bg-amber-500 w-[80vw] h-[80vh] max-w-[80vw] max-h-[80vh] overflow-y-auto";
+
+const contentLayoutClass =
+  "flex flex-col gap-6 md:flex-row md:items-start modalgrid";
+---
+
+<div class={rootClass}>
+  <Dialog>
+    <DialogTrigger>
+      <div class={thumbnailClass}>
+        <slot name="thumbnail">
+          <img src={hbl.src} alt="ill be ur honey b lovely" />
+        </slot>
+      </div>
+    </DialogTrigger>
+
+    <DialogContent
+      class="bg-amber-500 w-[80vw] h-[70vh] max-w-[80vw] max-h-[80vh] overflow-y-auto min-h-0"
+    >
+      <DialogTitle class="h-20 text-3xl">
+        <slot name="title"> Default Title </slot>
+        <div class="h-10 text-base text-zinc-500">
+          click anywhere outside to close...
+        </div>
+      </DialogTitle>
+
+      <DialogDescription>
+        <!-- Description: flex-1 + h-full fills the left side; overflow-y-auto enables scrolling if text is long -->
+        <div
+          class="w-full h-full flex-1 min-h-0 flex flex-row max-h-4/5 overflow-y-auto border-2 border-dashed border-sky-300"
+        >
+          <div class="w-2/5 border-4 border-red-400 p-4">
+            <slot name="description">
+              Default description with info about the project...
+            </slot>
+          </div>
+
+          <div
+            class="flex-1 md:w-3/5 shrink-0 items-center justify-center border-4 border-l-0 p-4 border-red-400"
+          >
+            <ImageCarrousel
+              carouselImages={carouselImages}
+              imageAspectClass={imageAspectClass}
+            />
+          </div>
+        </div>
+
+        <!-- Carousel: stays on the right side -->
+        <!-- 
+          -->
+      </DialogDescription>
+
+      <DialogFooter>
+        <div>
+          <slot name="links">
+            An array of links ooh, another orientation and anotha
+          </slot>
+        </div>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+</div>
+
+<style>
+  .channel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem; /* keep existing rounding if needed */
+  }
+
+  .channel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(34, 34, 34, 0.25) 1rem,
+      rgba(60, 60, 60, 0.18) 1.5rem,
+      rgba(34, 34, 34, 0.25) 2rem
+    );
+    background-size: 100% 100%;
+    animation: barberpole 20s linear infinite;
+    mix-blend-mode: overlay; /* try 'overlay', 'multiply', or 'screen' */
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .channel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes barberpole {
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+</style>
