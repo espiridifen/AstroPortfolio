@@ -18,6 +18,7 @@ import {
 
 import hbl from "@/assets/images/placeholders/placeholder1.jpg";
 import ImageCarrousel from "./ImageCarrousel.astro";
+import Button from "../starwind/button";
 
 interface Props {
   colSpan: string;
@@ -56,48 +57,73 @@ const contentLayoutClass =
     </DialogTrigger>
 
     <DialogContent
-      class="bg-amber-500 w-[80vw] h-[70vh] max-w-[80vw] max-h-[80vh] overflow-y-auto min-h-0"
+      class="bg-mist-400 w-[70vw] h-[70vh] max-w-[80vw] max-h-[80vh] border-8 p-0 rounded-2xl overflow-y-clip min-h-0"
     >
-      <DialogTitle class="h-20 text-3xl">
-        <slot name="title"> Default Title </slot>
-        <div class="h-10 text-base text-zinc-500">
-          click anywhere outside to close...
-        </div>
-      </DialogTitle>
-
       <DialogDescription>
         <!-- Description: flex-1 + h-full fills the left side; overflow-y-auto enables scrolling if text is long -->
-        <div
-          class="w-full h-full flex-1 min-h-0 flex flex-row max-h-4/5 overflow-y-auto border-2 border-dashed border-sky-300"
-        >
-          <div class="w-2/5 border-4 border-red-400 p-4">
-            <slot name="description">
-              Default description with info about the project...
-            </slot>
-          </div>
-
-          <div
-            class="flex-1 md:w-3/5 shrink-0 items-center justify-center border-4 border-l-0 p-4 border-red-400"
-          >
+        <div class="w-full h-full flex-1 min-h-0 max-h-4/5 border-2">
+          <div class=" shrink-0 justify-center absolute top-0 left-0">
             <ImageCarrousel
               carouselImages={carouselImages}
               imageAspectClass={imageAspectClass}
             />
+          </div>
+
+          <div class="w-2/5 h-2/5 p-4 m-2 bg-blend-multiply flex flex-col opacity-80 bg-gray-800 rounded-xl text-cyan-200">
+            <div class="text-2xl font-bold underline opacity-100">
+              <slot name="title"> Title </slot>
+            </div>
+            <div class="h-full overflow-y-scroll z-10 opacity-100">
+              <slot name="description">
+                Default description with info about the project... Default
+                description with info about the project...Default description
+                with info about the project...Default description with info
+                about the project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the
+                project...Default description with info about the project...
+              </slot>
+            </div>
           </div>
         </div>
 
         <!-- Carousel: stays on the right side -->
         <!-- 
           -->
-      </DialogDescription>
+        <div
+          class="absolute bottom-0 inset-x-0 z-20 bg-mist-600 w-full h-max min-h-0 border-2 flex flex-row justify-around p-10"
+        >
+          <Button class=" px-20 rounded-3xl bg-mist-500 border-3 border-sky-400">
+            enrique
+          </Button>
 
-      <DialogFooter>
-        <div>
-          <slot name="links">
-            An array of links ooh, another orientation and anotha
-          </slot>
+          <Button class=" px-20 rounded-3xl bg-mist-500 border-3 border-sky-400"> enrique </Button>
+
+          <Button class=" px-20 rounded-3xl bg-mist-500 border-3 border-sky-400"> enrique </Button>
         </div>
-      </DialogFooter>
+      </DialogDescription>
     </DialogContent>
   </Dialog>
 </div>
