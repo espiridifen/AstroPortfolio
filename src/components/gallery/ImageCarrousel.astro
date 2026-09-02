@@ -17,7 +17,7 @@ const {
     imageAspectClass = "aspect-[4/3]",
 } = Astro.props
 
-const carouselClass = "w-full";
+const carouselClass = "h-full w-full [&_[data-slot=carousel-content]]:h-full";
 
 const carouselNavClass =
   "z-20 bg-black/50 text-white border-white/20 backdrop-blur-sm hover:bg-black/70";
@@ -32,15 +32,15 @@ const carouselNavCenterStyle = "top: 50%; transform: translateY(-50%);";
     orientation="horizontal"
     class={carouselClass}
   >
-    <CarouselContent>
+    <CarouselContent class="h-full">
       {
         carouselImages.map((item) => {
           const href = item.src;
 
           return (
-            <CarouselItem>
-              <div class={`w-full overflow-hidden ${imageAspectClass}`}>
-                <img src={href} class="h-full w-full object-cover" />
+            <CarouselItem class="h-full">
+              <div class={`w-full h-full overflow-hidden ${imageAspectClass}`}>
+                <img src={href} class="h-full w-full object-cover object-center"/>
               </div>
             </CarouselItem>
           );

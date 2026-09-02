@@ -41,7 +41,49 @@ const {
 <script>
   import { createNavigationMenu } from "@data-slot/navigation-menu"
 
-  document
-    .querySelectorAll('[data-slot="navigation-menu"]')
-    .forEach((el) => createNavigationMenu(el))
+  const registryKey = "__navigationMenuControllers__"
+  const listenersBoundKey = "__navigationMenuSwapListenersBound__"
+
+  const getRegistry = () => {
+    const globalScope = window as Window & {
+      [registryKey]?: WeakMap<Element, ReturnType<typeof createNavigationMenu>>
+    }
+
+    if (!globalScope[registryKey]) {
+      globalScope[registryKey] = new WeakMap()
+    }
+
+    return globalScope[registryKey]
+  }
+
+  const bindNavigationMenus = (forceReset = false) => {
+    const registry = getRegistry()
+
+    document.querySelectorAll('[data-slot="navigation-menu"]').forEach((el) => {
+      const existingController = registry.get(el)
+
+      if (forceReset && existingController) {
+        existingController.destroy()
+        registry.delete(el)
+      }
+
+      if (!registry.has(el)) {
+        registry.set(el, createNavigationMenu(el))
+      }
+    })
+  }
+
+  bindNavigationMenus()
+
+  const globalScope = window as Window & {
+    [listenersBoundKey]?: boolean
+  }
+
+  if (!globalScope[listenersBoundKey]) {
+    document.addEventListener("astro:after-swap", () => {
+      bindNavigationMenus(true)
+    })
+
+    globalScope[listenersBoundKey] = true
+  }
 </script>

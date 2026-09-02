@@ -1,0 +1,39 @@
+---
+const currentLang = Astro.currentLocale ?? "en";
+const returnPath = `/${currentLang}/`;
+---
+
+<button class="button" id="return_button" data-return-path={returnPath}>
+  <div
+    class="border-4 rounded-2xl overflow-hidden channel hover:border-fuchsia-800 w-full h-full min-h-0"
+  >
+  </div>
+</button>
+
+<script>
+  import { navigate } from "astro:transitions/client";
+
+  const setupBackButton = () => {
+    const button = document.querySelector<HTMLButtonElement>("#return_button");
+    if (!button || button.dataset.initialized === "true") {
+      return;
+    }
+
+    const path = button.dataset.returnPath;
+    button.dataset.initialized = "true";
+
+    button.addEventListener("click", () => {
+      if (path) navigate(path);
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupBackButton, {
+      once: true,
+    });
+  } else {
+    setupBackButton();
+  }
+
+  document.addEventListener("astro:after-swap", setupBackButton);
+</script>

@@ -2,6 +2,8 @@
 import "@/styles/starwind.css";
 import BackgroundRing from "@/components/Animations/BackgroundRing.astro";
 import LanguageButton from "@/components/LanguageButton.astro";
+import { ClientRouter } from "astro:transitions";
+import ThreeScene from "@/components/three/ThreeScene";
 ---
 
 <!doctype html>
@@ -12,13 +14,20 @@ import LanguageButton from "@/components/LanguageButton.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
+    <ClientRouter/>
   </head>
   <body>
+    
+    <!-- <ThreeScene client:only="react" transition:persist transition:name="background" class:list={"fixed inset-0 w-full h-full top-0 left-0 -z-10"}/> -->
+    
+    
     <div
-      class="loader stripes flex justify-center items-center w-screen h-screen fixed top-0 bottom-0 right-0 left-0"
+      class="flex justify-center items-center w-screen h-screen fixed top-0 bottom-0 right-0 left-0"
       slot="loader"
     >
-	<div class="fixed inset-0 pointer-events-none overflow-hidden">
+    <div class="fixed inset-0 pointer-events-none overflow-hidden transition:persist">
+
+    <BackgroundRing />
 		<BackgroundRing />
 		<BackgroundRing />
 		<BackgroundRing />
@@ -28,11 +37,10 @@ import LanguageButton from "@/components/LanguageButton.astro";
 		<BackgroundRing />
 		<BackgroundRing />
 		<BackgroundRing />
-		<BackgroundRing />
-	  </div>
-    <div class="fixed right-2 top-2">
-      <LanguageButton />
-    </div>
+  </div>
+  <div class="fixed right-2 top-2">
+    <LanguageButton />
+  </div>
 	<slot />
 	
 </div>

@@ -2,19 +2,9 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogTitle,
   DialogTrigger,
 } from "../starwind/dialog";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../starwind/carousel";
 
 import hbl from "@/assets/images/placeholders/placeholder1.jpg";
 import ImageCarrousel from "./ImageCarrousel.astro";
@@ -24,19 +14,18 @@ interface Props {
   colSpan: string;
   rowSpan: string;
   carouselImages: Array<ImageMetadata>;
-  imageAspectClass?: string;
+  links: Array<[string, string]>
 }
 
 const {
   colSpan,
   rowSpan,
   carouselImages = [],
-  imageAspectClass = "aspect-[4/3]",
+  links = []
+
 } = Astro.props;
 
-const rootClass = `${colSpan || "col-span-1"} ${rowSpan || "row-span-1"}`;
-const thumbnailClass =
-  "border-4 rounded-2xl overflow-hidden channel hover:border-fuchsia-800";
+const rootClass = `${colSpan || "col-span-1"} ${rowSpan || "row-span-1"} w-full h-full`;
 
 // Centralized style tokens to make visual tuning easier.
 const modalClass =
@@ -47,92 +36,76 @@ const contentLayoutClass =
 ---
 
 <div class={rootClass}>
-  <Dialog>
-    <DialogTrigger>
-      <div class={thumbnailClass}>
-        <slot name="thumbnail">
-          <img src={hbl.src} alt="ill be ur honey b lovely" />
-        </slot>
-      </div>
-    </DialogTrigger>
-
-    <DialogContent
-      class="bg-mist-400 w-[70vw] h-[70vh] max-w-[80vw] max-h-[80vh] border-8 p-0 rounded-2xl overflow-y-clip min-h-0"
-    >
-      <DialogDescription>
-        <!-- Description: flex-1 + h-full fills the left side; overflow-y-auto enables scrolling if text is long -->
-        <div class="w-full h-full flex-1 min-h-0 max-h-4/5 border-2">
-          <div class=" shrink-0 justify-center absolute top-0 left-0">
+      <Dialog class="w-full h-full">
+        <DialogTrigger class="w-full h-full">
+          <div class="border-4 rounded-2xl overflow-hidden channel hover:border-fuchsia-800 w-full h-full min-h-0">
+            <slot name="thumbnail">
+              <img src={hbl.src} alt="thumbnail" class="h-full w-full object-cover"/>
+            </slot>
+          </div>
+        </DialogTrigger>
+    
+        <DialogContent
+          class="relative bg-mist-400 w-[70vw] h-[70vh] max-w-[80vw] max-h-[80vh] border-8 p-0 rounded-2xl overflow-hidden min-h-0"
+        >
+          <!-- 1. Full-bleed Carousel Layer (Background) -->
+          <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
             <ImageCarrousel
               carouselImages={carouselImages}
-              imageAspectClass={imageAspectClass}
+              imageAspectClass="h-full w-full"
             />
           </div>
-
-          <div class="w-2/5 h-2/5 p-4 m-2 bg-blend-multiply flex flex-col opacity-80 bg-gray-800 rounded-xl text-cyan-200">
-            <div class="text-2xl font-bold underline opacity-100">
-              <slot name="title"> Title </slot>
-            </div>
-            <div class="h-full overflow-y-scroll z-10 opacity-100">
-              <slot name="description">
-                Default description with info about the project... Default
-                description with info about the project...Default description
-                with info about the project...Default description with info
-                about the project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the
-                project...Default description with info about the project...
-              </slot>
+    
+          <!-- 2. Overlay Content Layer (Top-Left Text) -->
+          <div class="relative z-10 p-4 pointer-events-none">
+            <div class="w-2/5 max-h-[40vh] p-4 bg-gray-900/80 backdrop-blur-md rounded-xl text-cyan-200 pointer-events-auto flex flex-col">
+              <div class="text-2xl font-bold underline mb-2">
+                <slot name="title">Title</slot>
+              </div>
+              <div class="overflow-y-auto max-h-[30vh]">
+                <slot name="description">
+                  Default description with info about the project...
+                </slot>
+              </div>
             </div>
           </div>
-        </div>
+    
+          <!-- 3. Bottom Action Bar (Pinned Bottom) -->
+          <div
+            class="absolute bottom-0 inset-x-0 z-20 bg-mist-600/90 backdrop-blur-sm w-full flex flex-row justify-around p-4 border-t-2"
+          >
+            {links.length > 0 ? (
+              links.map(([label, href]) => (
+                <Button href={href} class="px-8 rounded-3xl bg-mist-500 border-2 border-sky-400">
+                  {label}
+                </Button>
+              ))
+            ) : (
+              <>
+                <Button class="px-8 rounded-3xl bg-mist-500 border-2 border-sky-400">
+                  Action 1
+                </Button>
+                <Button class="px-8 rounded-3xl bg-mist-500 border-2 border-sky-400">
+                  Action 2
+                </Button>
+                <Button class="px-8 rounded-3xl bg-mist-500 border-2 border-sky-400">
+                  Action 3
+                </Button>
+              </>
+            )}
 
-        <!-- Carousel: stays on the right side -->
-        <!-- 
-          -->
-        <div
-          class="absolute bottom-0 inset-x-0 z-20 bg-mist-600 w-full h-max min-h-0 border-2 flex flex-row justify-around p-10"
-        >
-          <Button class=" px-20 rounded-3xl bg-mist-500 border-3 border-sky-400">
-            enrique
-          </Button>
-
-          <Button class=" px-20 rounded-3xl bg-mist-500 border-3 border-sky-400"> enrique </Button>
-
-          <Button class=" px-20 rounded-3xl bg-mist-500 border-3 border-sky-400"> enrique </Button>
-        </div>
-      </DialogDescription>
-    </DialogContent>
-  </Dialog>
-</div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </div>
 
 <style>
   .channel {
     position: relative;
     overflow: hidden;
     border-radius: 1rem; /* keep existing rounding if needed */
+    width: 100%;
+    height: 100%;
   }
 
   .channel::after {

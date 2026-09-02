@@ -1,5 +1,5 @@
 // content.config.ts
-import { ObsidianMdLoader } from "astro-loader-obsidian";
+import { ObsidianDocumentSchema, ObsidianMdLoader } from "astro-loader-obsidian";
 import { defineCollection, z } from "astro:content";
 
 export const collections = {
@@ -16,5 +16,10 @@ export const collections = {
       pattern: "Projects/**/*.md",
       url: "projects",
     }),
+    schema: ObsidianDocumentSchema.extend({
+          lang: z.enum(["en", "es"]).optional(),
+          "localization-id": z.string().optional(),
+          "title": z.string(),
+        }),
   }),
 };

@@ -9,8 +9,10 @@ import AreaCard from "@/components/home/AreaCard.astro";
 import BackgroundRing from "@/components/Animations/BackgroundRing.astro";
 import Link from "@/components/Link.astro";
 import ProyectGallery from "@/components/home/ProyectGallery.astro";
-import { Github, Linkedin, MailIcon } from "lucide-react";
-
+import { Computer, Github, Linkedin, MailIcon, Gamepad } from "lucide-react";
+import gamedevCVPath from "@/assets/files/CV/Gamedev/es/Daniel Alonso Herranz - CV.pdf";
+import softwareCVPath from "@/assets/files/CV/Software/es/Daniel Alonso Herranz - CV.pdf";
+import placeholder from "@/assets/images/placeholders/placeholder1.jpg";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -56,16 +58,31 @@ el estilo:
 
 -->
 <Layout>
-  
-
   <main
-    class="grid max-w-7xl
+    class="grid max-w-9/12 overflow-scroll
 		p-2 gap-2
 		sm:p-4 sm:gap-2
 		md:grid-cols-3 md:gap-3 md:p-6
-		lg:h-screen lg:grid-rows-6 lg:grid-cols-4 lg:gap-6 lg:max-h-[750px]"
+		lg:h-screen lg:grid-rows-6 lg:grid-cols-4 lg:gap-6 lg:max-h-6/7"
   >
-    <Introduction />
+    <Card title="¡Hola!" colSpan="md:col-span-3" rowSpan="md:row-span-3">
+      <div class="flex flex-row w-max h-max">
+        <div class="wrap-break-word max-w-2/7">
+          Me llamo Daniel, y soy un desarrollador de software, especializado en
+          el desarrollo de videojuegos y en el diseño y desarrollo de frontend.
+          Mi objetivo es crear software que ayude a humanos y desarrollas
+          historias y experiencias que nos permitan empujar nuestras propias
+          barreras.<br />
+          <br />
+          Soy un portavoz del solarpunk, y me encanta diseñar encuentros para Dragones y Mazmorras en mi tiempo libre,
+		además de hacer ilustración digital y diseño de personaje. 
+		Siéntente libre de husmear mis proyectos y trabajo en esta página.
+        </div>
+        <div class="max-w-40">
+          <img src={placeholder.src} />
+        </div>
+      </div>
+    </Card>
 
     <Card title="Intereses" colSpan="md:col-span-1" rowSpan="md:row-span-3">
       Actualmente estoy interesando en: <br />
@@ -76,43 +93,57 @@ el estilo:
         <li>- Ilustración</li>
       </ul>
     </Card>
-	
-	<Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Contacto">
-	  <Link href="mailto:daniel.alonsoherranz@gmail.com">
-		<div slot="icon">
-			<MailIcon/>
+
+    <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Contacto">
+      <Link href="mailto:daniel.alonsoherranz@gmail.com">
+        <div slot="icon">
+          <MailIcon />
+        </div>
+        <div slot="text">Send me a mail</div>
+      </Link>
+      <Link href="https://github.com/espiridifen">
+        <div slot="icon">
+          <Github />
+        </div>
+        <div slot="text">Github</div>
+      </Link>
+      <Link href="https://www.linkedin.com/in/daniel-alonso-herranz-13a310256/">
+        <div slot="icon">
+          <Linkedin />
+        </div>
+        <div slot="text">LinkedIn</div>
+      </Link>
+    </Card>
+
+    <ProyectGallery />
+
+    <Card colSpan="md:col-span-1" rowSpan="md:row-span-5" title="Blog" >
+
+		<div class="text-xs">
+			Coming soon...
 		</div>
-		<div slot="text">Send me a mail</div>
-	  </Link>
-	  <Link href="https://github.com/espiridifen">
-		<div slot="icon">
-			<Github/>
-		</div>
-		<div slot="text">Github</div>
-	  </Link>
-	  <Link href="https://www.linkedin.com/in/daniel-alonso-herranz-13a310256/">
-		<div slot="icon">
-			<Linkedin/>
-		</div>
-		<div slot="text">LinkedIn</div>
-	  </Link>
+
 	</Card>
 
-	<ProyectGallery/>
-
-	
-	<Card colSpan="md:col-span-1" rowSpan="md:row-span-5" title="Blog" />
-	
     <Card
-	colSpan="md:col-span-1"
-	rowSpan="md:row-span-3"
-	title="Descarga mi CV"
-	href="https://cv.espi.top"
+      colSpan="md:col-span-1"
+      rowSpan="md:row-span-3"
+      title="Descarga mi CV"
     >
-	en es
-</Card>
+      <Link href={gamedevCVPath}>
+        <div slot="icon">
+          <Gamepad />
+        </div>
+        <div slot="text">Gamedev</div>
+      </Link>
+      <Link href={softwareCVPath}>
+        <div slot="icon">
+          <Computer />
+        </div>
+        <div slot="text">Software</div>
+      </Link>
+    </Card>
 
-
-<Card colSpan="md:col-span-2" rowSpan="md:row-span-2" title="Ahora" />
-</main>
+    <Card colSpan="md:col-span-2" rowSpan="md:row-span-2" title="Ahora" />
+  </main>
 </Layout>

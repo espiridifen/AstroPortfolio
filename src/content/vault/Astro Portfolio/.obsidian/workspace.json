@@ -56,7 +56,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -189,7 +191,7 @@
                 "file": "Projects/Timeless Deck.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for Timeless Deck"
+              "title": "File properties"
             }
           }
         ],
@@ -212,17 +214,32 @@
   },
   "active": "97cea3239a2f93f6",
   "lastOpenFiles": [
-    "Projects/Untitled.md",
+    "Projects/Nights of San Juan es.md",
+    "Projects/Nights of San Juan.md",
+    "Misc/Images/Pasted image 20260825121106.png",
+    "Misc/Images/Pasted image 20260825121200.png",
+    "Misc/Images/Pasted image 20260825121215.png",
+    "Misc/Images/Pasted image 20260825121222.png",
+    "Projects/Bubble Party XP.md",
+    "Projects/Bubble Party XP en.md",
+    "Projects/Timeless Deck - Es Tiempo.md",
     "Projects/Timeless Deck.md",
+    "Projects/FORGE Engine.md",
+    "Projects/FORGE.md",
+    "Misc/Images/Pasted image 20260825115429.png",
+    "Misc/Images/Pasted image 20260825115422.png",
+    "Misc/Images/Pasted image 20260825115452.png",
+    "Misc/Images/Pasted image 20260825115443.png",
+    "Misc/Images/Pasted image 20260825115437.png",
     "Misc/Templates/Project Template.md",
+    "Misc/Images/Pasted image 20260825114539.png",
+    "Welcome.md",
     "Blog/Untitled.md",
     "Misc/Images",
-    "Misc/Images/honeybeelovely.jpg",
     "Blog/Intro.md",
     "Misc/Templates/Blogpost Template.md",
     "Misc/Templates",
     "Misc",
-    "Welcome.md",
     "Projects",
     "Blog"
   ]

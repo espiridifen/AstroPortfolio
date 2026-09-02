@@ -48,7 +48,11 @@ const {
     });
   };
 
-  document.addEventListener("DOMContentLoaded", setupCarousels);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupCarousels, { once: true });
+  } else {
+    setupCarousels();
+  }
 
   // Re-initialize after Astro page transitions
   document.addEventListener("astro:after-swap", setupCarousels);

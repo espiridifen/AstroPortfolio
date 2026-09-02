@@ -2,50 +2,102 @@
 import Link from "@/components/Link.astro";
 import Layout from "@/layouts/Layout.astro";
 import { ArrowBigLeftDash } from "lucide-react";
-
 import Card from "@/components/Card/index.astro";
 import { getCollection } from "astro:content";
 import ProyectCard from "@/components/home/ProyectCard.astro";
-
 import GalleryCard from "@/components/gallery/GalleryCard.astro";
+import ReturnCard from "@/components/gallery/ReturnCard.astro";
+
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/placeholders/*.{jpeg,jpg,png,gif}",
-  { eager: true }
+  { eager: true },
 );
+
+const currentLang = Astro.currentLocale ?? "en";
+
+// 1. Fetch Obsidian projects
+const projects = await getCollection("projects", ({data}) => {
+  return (data.lang ?? "en") === currentLang;
+});
+
+// 2. Load vault images
+const vaultImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/vault/**/*.{jpeg,jpg,png,gif,webp,avif,svg}",
+  { eager: true },
+);
+
+
+const imageMap = new Map<string, ImageMetadata>();
+for (const [path, mod] of Object.entries(vaultImages)) {
+  const filename = path.split("/").pop();
+  if (filename) imageMap.set(filename, mod.default);
+}
+
+
+// 3. Grid span presets for variation
+const gridPresets = [
+  { colSpan: "col-span-1", rowSpan: "row-span-1" },
+  { colSpan: "col-span-2", rowSpan: "row-span-2" },
+  { colSpan: "col-span-3", rowSpan: "row-span-3" },
+];
 
 const imageList = Object.values(images).map((m) => m.default);
 
-const projects = await getCollection("projects");
+const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+const extractLinks = (content: string) =>
+  [...content.matchAll(markdownLinkRegex)].map(([, name, link]) => [name, link] as [string, string]);
 
-console.log(projects);
+
 ---
 
 <Layout>
-  <div id="gallery-container" class="flex items-center">
-    <Card colSpan="md:col-span-1">
-      <Link href="/">
-        <div slot="icon">
-          <ArrowBigLeftDash />
-        </div>
-        <div slot="text">Back</div>
-      </Link>
-    </Card>
+  
+    
+  
+  
+  <div class="w-full h-full p-20 transition:fade">
+    <div class="w-full h-full grid grid-cols-6 grid-rows-6 gap-2 z-10">
+      
+      
+       <ReturnCard/>
 
-    <div class="col-start-2 row-start-2 p-8 flex flex-col">
-        <div class="grid grid-cols-6 grid-rows-6 gap-2 z-10">
-            <GalleryCard colSpan="col-span-1" rowSpan="row-span-1" carouselImages={imageList}>
-            </GalleryCard>
-            <GalleryCard colSpan="col-span-2" rowSpan="row-span-2" carouselImages={imageList}>
-            </GalleryCard>
-            <GalleryCard colSpan="col-span-3" rowSpan="row-span-3" carouselImages={imageList}>
-            </GalleryCard>
-            <GalleryCard colSpan="col-span-1" rowSpan="row-span-1" carouselImages={imageList}>
-            </GalleryCard>
-            
-        </div>
+       {
+              projects.map((project, index) => {
+                const projectImages = (project.data.images || [])
+                  .map((img: any) => imageMap.get(img.title ?? img.href?.split("/").pop()))
+                  .filter((img): img is ImageMetadata => Boolean(img));
+    
+                const carouselImages = projectImages.length > 0 ? projectImages : imageList;
+                const cleanText = project.body ? project.body.replace(/!\[\[.*?\]\]/g, "").trim() : "";
+                const preset = gridPresets[index % gridPresets.length];
+                const links = extractLinks(cleanText);
+    
+                return (
+    		 <GalleryCard
+                    colSpan={preset.colSpan}
+                    rowSpan={preset.rowSpan}
+                    carouselImages={carouselImages}
+                    links={links}>
+                    <!-- Thumbnail on the grid -->
+                    <img
+                      slot="thumbnail"
+                      src={carouselImages[0].src}
+                      alt={project.data.title || "Project image"}
+                      class="w-full h-full object-cover"
+                    />
+
+                    <!-- Title in modal overlay -->
+                    <span slot="title">{project.data.title || "Untitled Project"}</span>
+
+                    <!-- Text in modal overlay -->
+                    <p slot="description">{cleanText}</p>
+    		 </GalleryCard>
+                );
+              })
+            }        
+      </div>
     </div>
-  </div>
 </Layout>
 
 <style>

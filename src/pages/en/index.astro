@@ -9,8 +9,10 @@ import AreaCard from "@/components/home/AreaCard.astro";
 import BackgroundRing from "@/components/Animations/BackgroundRing.astro";
 import Link from "@/components/Link.astro";
 import ProyectGallery from "@/components/home/ProyectGallery.astro";
-import { Github, Linkedin, MailIcon } from "lucide-react";
-
+import { Computer, Gamepad, Github, Linkedin, MailIcon } from "lucide-react";
+import gamedevCVPath from "@/assets/files/CV/Gamedev/en/Daniel Alonso Herranz - CV.pdf";
+import softwareCVPath from "@/assets/files/CV/Software/en/Daniel Alonso Herranz - CV.pdf";
+import placeholder from "@/assets/images/placeholders/placeholder1.jpg";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -56,21 +58,30 @@ el estilo:
 
 -->
 <Layout>
-  
-
   <main
-    class="grid max-w-7xl
+    class="grid max-w-9/12 overflow-scroll
 		p-2 gap-2
 		sm:p-4 sm:gap-2
 		md:grid-cols-3 md:gap-3 md:p-6
-		lg:h-screen lg:grid-rows-6 lg:grid-cols-4 lg:gap-6 lg:max-h-[750px]"
+		lg:h-screen lg:grid-rows-6 lg:grid-cols-4 lg:gap-6 lg:max-h-6/7"
   >
-    <Card title='About me'  colSpan='md:col-span-3' rowSpan='md:row-span-3'>
-    <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-		pero en ingle saes
-	</div>
-</Card>
+    <Card title="Hi there!" colSpan="md:col-span-3" rowSpan="md:row-span-3">
+      <div class="flex flex-row w-max h-max">
+        <div class="wrap-break-word max-w-2/7">
+          My name is Daniel, and i'm a software developer, specializing in games
+          development and frontend development and design! My objective is to
+          create software that helps humans and develop stories and experiencies
+          that push us to the best of our abilities.<br />
+          <br />
+          I'm a solarpunk advocate, and I love to design encounters for Dungeons and
+          Dragons in my free time, as well as doing some digital illustration and
+          character design. Feel free to check out my proyects and my work here!
+        </div>
+        <div class="max-w-40">
+          <img src={placeholder.src} />
+        </div>
+      </div>
+    </Card>
 
     <Card title="Interests" colSpan="md:col-span-1" rowSpan="md:row-span-3">
       I am currently interested in: <br />
@@ -81,43 +92,53 @@ el estilo:
         <li>- Digital Illustration</li>
       </ul>
     </Card>
-	
-	<Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Contact">
-	  <Link href="mailto:daniel.alonsoherranz@gmail.com">
-		<div slot="icon">
-			<MailIcon/>
-		</div>
-		<div slot="text">Send me a mail</div>
-	  </Link>
-	  <Link href="https://github.com/espiridifen">
-		<div slot="icon">
-			<Github/>
-		</div>
-		<div slot="text">Github</div>
-	  </Link>
-	  <Link href="https://www.linkedin.com/in/daniel-alonso-herranz-13a310256/">
-		<div slot="icon">
-			<Linkedin/>
-		</div>
-		<div slot="text">LinkedIn</div>
-	  </Link>
-	</Card>
 
-	<ProyectGallery/>
+    <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Contact">
+      <Link href="mailto:daniel.alonsoherranz@gmail.com">
+        <div slot="icon">
+          <MailIcon />
+        </div>
+        <div slot="text">Send me a mail</div>
+      </Link>
+      <Link href="https://github.com/espiridifen">
+        <div slot="icon">
+          <Github />
+        </div>
+        <div slot="text">Github</div>
+      </Link>
+      <Link href="https://www.linkedin.com/in/daniel-alonso-herranz-13a310256/">
+        <div slot="icon">
+          <Linkedin />
+        </div>
+        <div slot="text">LinkedIn</div>
+      </Link>
+    </Card>
 
-	
-	<Card colSpan="md:col-span-1" rowSpan="md:row-span-5" title="Blog" />
-	
+    <ProyectGallery />
+
+    <Card colSpan="md:col-span-1" rowSpan="md:row-span-5" title="Blog">
+      <div class="text-xs">Coming soon...</div>
+    </Card>
+
     <Card
-	colSpan="md:col-span-1"
-	rowSpan="md:row-span-3"
-	title="Download my CV"
-	href="https://cv.espi.top"
+      colSpan="md:col-span-1"
+      rowSpan="md:row-span-3"
+      title="Download my CV"
     >
-	en es
-</Card>
+      <Link href={gamedevCVPath}>
+        <div slot="icon">
+          <Gamepad />
+        </div>
+        <div slot="text">Gamedev</div>
+      </Link>
+      <Link href={softwareCVPath}>
+        <div slot="icon">
+          <Computer />
+        </div>
+        <div slot="text">Software</div>
+      </Link>
+    </Card>
 
-
-<Card colSpan="md:col-span-2" rowSpan="md:row-span-2" title="Now" />
-</main>
+    <Card colSpan="md:col-span-2" rowSpan="md:row-span-2" title="Now" />
+  </main>
 </Layout>
