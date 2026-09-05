@@ -9,4 +9,4 @@ title: El Que Tengo Aquí Colgado
 
 [Game Page](https://pablosm196.itch.io/el-que-tengo-aqu-colgado)
 
-![[Pasted image 20260905162445.png]]
+![[Pasted image 20260905162445.webp]]

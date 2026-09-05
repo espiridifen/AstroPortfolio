@@ -10,7 +10,7 @@ Marvin y Bo, lovers since time immemorial, are engaged. They must pass a series 
 [Game Page](https://davidrainder.itch.io/tongue-twister-nos-hemos-liao)
 
 
-![[Pasted image 20260905161819.png]]
+![[Pasted image 20260905161819.webp]]
 
 
-![[Pasted image 20260905161828.png]]
+![[Pasted image 20260905161828.webp]]

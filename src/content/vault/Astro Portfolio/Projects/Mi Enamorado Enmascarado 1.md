@@ -11,8 +11,8 @@ This game is only available in Spanish
 
 [Game Page](https://tyzarzuela.itch.io/mi-enamorado-enmascarado)
 
-![[Pasted image 20260905162700.png]]
+![[Pasted image 20260905162700.webp]]
 
-![[Pasted image 20260905162726.png]]
+![[Pasted image 20260905162726.webp]]
 
-![[Pasted image 20260905162731.png]]
+![[Pasted image 20260905162731.webp]]

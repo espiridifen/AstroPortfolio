@@ -12,4 +12,4 @@ Un motor de videojuegos basado en C++ el cual cuenta con todo lo necesario para 
 
 [Github](https://github.com/UCM-FDI-DISIA/FORGE)
 
-![[Pasted image 20260825114539.png]]
+![[Pasted image 20260825114539.webp]]

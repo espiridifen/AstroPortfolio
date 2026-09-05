@@ -10,12 +10,12 @@ De lo más profundo del shovelware que se sacó para Windows XP, vuelve Bubble P
 
 [Página de itch.io](https://andrea-18.itch.io/bubble-party-xp-ahora-con-el-mvil)
 
-![[Pasted image 20260825115422.png]]
+![[Pasted image 20260825115422.webp]]
 
-![[Pasted image 20260825115429.png]]
+![[Pasted image 20260825115429.webp]]
 
-![[Pasted image 20260825115437.png]]
+![[Pasted image 20260825115437.webp]]
 
-![[Pasted image 20260825115443.png]]
+![[Pasted image 20260825115443.webp]]
 
-![[Pasted image 20260825115452.png]]
+![[Pasted image 20260825115452.webp]]

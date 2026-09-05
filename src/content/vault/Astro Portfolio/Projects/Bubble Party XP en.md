@@ -10,14 +10,12 @@ From the deepest hells of the shoverlware that never was developed for Windows X
 
 [Play on itch.io](https://andrea-18.itch.io/bubble-party-xp-ahora-con-el-mvil)
 
-![[Pasted image 20260825115422.png]]
+![[Pasted image 20260825115422.webp]]
 
-![[Pasted image 20260825115429.png]]
+![[Pasted image 20260825115429.webp]]
 
-![[Pasted image 20260825115437.png]]
+![[Pasted image 20260825115437.webp]]
 
-![[Pasted image 20260825115443.png]]
+![[Pasted image 20260825115443.webp]]
 
-![[Pasted image 20260825115452.png]]
-
-https://andrea-18.itch.io/bubble-party-xp-ahora-con-el-mvil
+![[Pasted image 20260825115452.webp]]

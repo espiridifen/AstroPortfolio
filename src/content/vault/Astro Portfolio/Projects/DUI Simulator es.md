@@ -9,6 +9,6 @@ Un juego VR de conducción desarrollado para concienciar sobre los peligros de c
 
 [Página de itch.io](https://espiridifen.itch.io/duisimulator)
 
-![[Pasted image 20260905161456.png]]
+![[Pasted image 20260905161456.webp]]
 
-![[Pasted image 20260905161449.png]]
+![[Pasted image 20260905161449.webp]]

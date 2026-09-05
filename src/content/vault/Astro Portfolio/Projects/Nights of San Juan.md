@@ -13,10 +13,10 @@ This was developed by a group of students as part of a course at NORD University
 
 [Game page](https://borari.itch.io/nights-of-san-juan)
 
-![[Pasted image 20260825121200.png]]
+![[Pasted image 20260825121200.webp]]
 
-![[Pasted image 20260825121215.png]]
+![[Pasted image 20260825121215.webp]]
 
-![[Pasted image 20260825121222.png]]
+![[Pasted image 20260825121222.webp]]
 
-![[Pasted image 20260825121106.png]]
+![[Pasted image 20260825121106.webp]]

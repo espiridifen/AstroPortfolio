@@ -9,4 +9,4 @@ Play with your friends! Grab a PC, a controller y get ready to guess the puppets
 
 [Game Page](https://pablosm196.itch.io/el-que-tengo-aqu-colgado)
 
-![[Pasted image 20260905162445.png]]
+![[Pasted image 20260905162445.webp]]

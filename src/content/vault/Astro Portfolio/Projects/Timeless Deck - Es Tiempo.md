@@ -9,10 +9,10 @@ Un juego arcade de construcción de mazos donde el jugador debe superar distinto
 
 [Página del juego](https://ddiego.itch.io/timelessdeck)
 
-![[Pasted image 20260825113010.png]]
+![[Pasted image 20260825113010.webp]]
 
-![[Pasted image 20260825113947.png]]
+![[Pasted image 20260825113947.webp]]
 
-![[Pasted image 20260825113313.png]]
+![[Pasted image 20260825113313.webp]]
 
-![[Pasted image 20260825113325.png]]
+![[Pasted image 20260825113325.webp]]

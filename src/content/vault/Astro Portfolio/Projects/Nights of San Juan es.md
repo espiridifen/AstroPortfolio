@@ -14,9 +14,10 @@ Este proyecto ha sido desarrollado por un grupo de estudiantes como parte de un 
 [Página del juego](https://borari.itch.io/nights-of-san-juan)
 
 
-![[Pasted image 20260825121200.png]]
+![[Pasted image 20260825121200.webp]]
 
-![[Pasted image 20260825121215.png]]
+![[Pasted image 20260825121215.webp]]
 
-![[Pasted image 20260825121222.png]]
-![[Pasted image 20260825121106.png]]
+![[Pasted image 20260825121222.webp]]
+
+![[Pasted image 20260825121106.webp]]

@@ -9,6 +9,6 @@ Marvin y Bo, fervientes amantes desde tiempos inmemoriables, están prometidos. 
 
 [Game Page](https://davidrainder.itch.io/tongue-twister-nos-hemos-liao)
 
-![[Pasted image 20260905161819.png]]
+![[Pasted image 20260905161819.webp]]
 
-![[Pasted image 20260905161828.png]]
+![[Pasted image 20260905161828.webp]]

@@ -12,4 +12,4 @@ A c++ based game engine wit all that is required to create 3D games. With an Com
 
 [Github page](https://github.com/UCM-FDI-DISIA/FORGE)
 
-![[Pasted image 20260825114539.png]]
+![[Pasted image 20260825114539.webp]]

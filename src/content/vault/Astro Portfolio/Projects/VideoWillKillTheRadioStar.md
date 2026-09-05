@@ -9,9 +9,9 @@ A prototype developed for Godot Wild Jam. Skate through the city and try to surv
 
 [Game Page](https://espiridifen.itch.io/video-will-kill-the-radio-star)
 
-![[Pasted image 20260905151455.png]]
+![[Pasted image 20260905151455.webp]]
 
 
-![[Pasted image 20260905151444.png]]
+![[Pasted image 20260905151444.webp]]
 
-![[Pasted image 20260905151547.png]]
+![[Pasted image 20260905151547.webp]]

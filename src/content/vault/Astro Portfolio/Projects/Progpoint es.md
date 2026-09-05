@@ -9,7 +9,7 @@ Una herramienta web para diseñar sistemas de combate por turnos y realizar simu
 
 [Pruébalo](https://progpoint.espi.top/)
 
-![[IMG_0454.png]]
+![[IMG_0454.webp]]
 
 
-![[Pasted image 20260905154650.png]]
+![[Pasted image 20260905154650.webp]]

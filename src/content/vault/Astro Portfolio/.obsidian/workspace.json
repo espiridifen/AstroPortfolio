@@ -27,13 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Projects/VideoWillKillTheRadioStar.md",
-                "mode": "preview",
-                "source": true,
-                "backlinks": false
+                "file": "Projects/VideoWillKillTheRadioStar es.md",
+                "mode": "source",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "VideoWillKillTheRadioStar"
+              "title": "VideoWillKillTheRadioStar es"
             }
           }
         ],
@@ -189,7 +188,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Projects/VideoWillKillTheRadioStar.md"
+                "file": "Projects/VideoWillKillTheRadioStar es.md"
               },
               "icon": "lucide-info",
               "title": "File properties"
@@ -215,7 +214,6 @@
   },
   "active": "97cea3239a2f93f6",
   "lastOpenFiles": [
-    "Projects/VideoWillKillTheRadioStar es.md",
     "Projects/VideoWillKillTheRadioStar.md",
     "Projects/Tongue Twister en.md",
     "Projects/Tongue Twister.md",
@@ -233,25 +231,26 @@
     "Projects/El Que Tengo Aquí Colgado.md",
     "Projects/DUI Simulator es.md",
     "Projects/DUI Simulator.md",
-    "Misc/Images/Pasted image 20260905162731.png",
-    "Misc/Images/Pasted image 20260905162726.png",
-    "Misc/Images/Pasted image 20260905162717.png",
-    "Misc/Images/Pasted image 20260905162711.png",
-    "Misc/Images/Pasted image 20260905162707.png",
-    "Misc/Images/Pasted image 20260905162700.png",
-    "Misc/Images/Pasted image 20260905162445.png",
-    "Misc/Lista Proyectos.md",
-    "Misc/Images/Pasted image 20260905161828.png",
-    "Misc/Images/Pasted image 20260905161819.png",
-    "Misc/Images/Pasted image 20260905161456.png",
     "Projects/Bubble Party XP en.md",
     "Projects/Bubble Party XP.md",
+    "Misc/Images/honeybeelovely.webp",
+    "Misc/Images/soc-128-sol-ring.webp",
+    "Misc/Images/IMG_0440.webp",
+    "Misc/Images/Pasted image 20260905162731.webp",
+    "Misc/Images/Pasted image 20260905162726.webp",
+    "Misc/Images/Pasted image 20260905162717.webp",
+    "Misc/Images/Pasted image 20260905162711.webp",
+    "Misc/Images/Pasted image 20260905162707.webp",
+    "Misc/Images/Pasted image 20260905162700.webp",
+    "Misc/Images/Pasted image 20260905162445.webp",
+    "Misc/Images/convert.sh",
+    "Projects/VideoWillKillTheRadioStar es.md",
+    "Misc/Lista Proyectos.md",
     "Misc/Templates/Project Template.md",
     "Welcome.md",
     "Blog/Untitled.md",
     "Misc/Images",
     "Blog/Intro.md",
-    "Misc/Templates/Blogpost Template.md",
     "Misc/Templates",
     "Misc",
     "Projects",
