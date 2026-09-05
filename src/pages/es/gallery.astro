@@ -24,13 +24,18 @@ const projects = await getCollection("projects", ({data}) => {
 // 2. Load vault images
 const vaultImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/content/vault/**/*.{jpeg,jpg,png,gif,webp,avif,svg}",
-  { eager: true },
+  { eager: true,
+   },
 );
+
+
 
 
 const imageMap = new Map<string, ImageMetadata>();
 for (const [path, mod] of Object.entries(vaultImages)) {
   const filename = path.split("/").pop();
+  if (filename == "Pasted image 20260905161819.png") console.log("found Pasted image 20260905161819.png")
+  console.log(filename)
   if (filename) imageMap.set(filename, mod.default);
 }
 
@@ -38,8 +43,8 @@ for (const [path, mod] of Object.entries(vaultImages)) {
 // 3. Grid span presets for variation
 const gridPresets = [
   { colSpan: "col-span-1", rowSpan: "row-span-1" },
+  { colSpan: "col-span-1", rowSpan: "row-span-2" },
   { colSpan: "col-span-2", rowSpan: "row-span-2" },
-  { colSpan: "col-span-3", rowSpan: "row-span-3" },
 ];
 
 const imageList = Object.values(images).map((m) => m.default);
@@ -67,7 +72,6 @@ const extractLinks = (content: string) =>
                 const projectImages = (project.data.images || [])
                   .map((img: any) => imageMap.get(img.title ?? img.href?.split("/").pop()))
                   .filter((img): img is ImageMetadata => Boolean(img));
-    
                 const carouselImages = projectImages.length > 0 ? projectImages : imageList;
                 var cleanText = project.body ? project.body.replace(/!\[\[.*?\]\]/g, "").trim() : "";
                 const links = extractLinks(cleanText);

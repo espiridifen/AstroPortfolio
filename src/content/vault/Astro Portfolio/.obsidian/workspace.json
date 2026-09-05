@@ -27,12 +27,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Projects/Timeless Deck.md",
-                "mode": "source",
-                "source": false
+                "file": "Projects/VideoWillKillTheRadioStar.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Timeless Deck"
+              "title": "VideoWillKillTheRadioStar"
             }
           }
         ],
@@ -188,7 +189,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Projects/Timeless Deck.md"
+                "file": "Projects/VideoWillKillTheRadioStar.md"
               },
               "icon": "lucide-info",
               "title": "File properties"
@@ -214,25 +215,38 @@
   },
   "active": "97cea3239a2f93f6",
   "lastOpenFiles": [
-    "Projects/Nights of San Juan es.md",
-    "Projects/Nights of San Juan.md",
-    "Misc/Images/Pasted image 20260825121106.png",
-    "Misc/Images/Pasted image 20260825121200.png",
-    "Misc/Images/Pasted image 20260825121215.png",
-    "Misc/Images/Pasted image 20260825121222.png",
-    "Projects/Bubble Party XP.md",
-    "Projects/Bubble Party XP en.md",
+    "Projects/VideoWillKillTheRadioStar es.md",
+    "Projects/VideoWillKillTheRadioStar.md",
+    "Projects/Tongue Twister en.md",
+    "Projects/Tongue Twister.md",
     "Projects/Timeless Deck - Es Tiempo.md",
     "Projects/Timeless Deck.md",
+    "Projects/Progpoint es.md",
+    "Projects/Progpoint.md",
+    "Projects/Nights of San Juan es.md",
+    "Projects/Nights of San Juan.md",
+    "Projects/Mi Enamorado Enmascarado 1.md",
+    "Projects/Mi Enamorado Enmascarado.md",
     "Projects/FORGE Engine.md",
     "Projects/FORGE.md",
-    "Misc/Images/Pasted image 20260825115429.png",
-    "Misc/Images/Pasted image 20260825115422.png",
-    "Misc/Images/Pasted image 20260825115452.png",
-    "Misc/Images/Pasted image 20260825115443.png",
-    "Misc/Images/Pasted image 20260825115437.png",
+    "Projects/El Que Tengo Aquí Colgado 1.md",
+    "Projects/El Que Tengo Aquí Colgado.md",
+    "Projects/DUI Simulator es.md",
+    "Projects/DUI Simulator.md",
+    "Misc/Images/Pasted image 20260905162731.png",
+    "Misc/Images/Pasted image 20260905162726.png",
+    "Misc/Images/Pasted image 20260905162717.png",
+    "Misc/Images/Pasted image 20260905162711.png",
+    "Misc/Images/Pasted image 20260905162707.png",
+    "Misc/Images/Pasted image 20260905162700.png",
+    "Misc/Images/Pasted image 20260905162445.png",
+    "Misc/Lista Proyectos.md",
+    "Misc/Images/Pasted image 20260905161828.png",
+    "Misc/Images/Pasted image 20260905161819.png",
+    "Misc/Images/Pasted image 20260905161456.png",
+    "Projects/Bubble Party XP en.md",
+    "Projects/Bubble Party XP.md",
     "Misc/Templates/Project Template.md",
-    "Misc/Images/Pasted image 20260825114539.png",
     "Welcome.md",
     "Blog/Untitled.md",
     "Misc/Images",
